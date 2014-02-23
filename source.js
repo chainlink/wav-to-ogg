@@ -1,3 +1,33 @@
+function peaksInit(audioLocation) {
+    window.peaks.init({
+            container: document.getElementById('peaks-container'),
+            audioElement: document.getElementById('audio-preview'),
+            audioBufferLocation: audioLocation,
+            keyboard: true,
+            height: 240,
+            pointDblClickHandler: myHandler,
+            pointDragEndHandler: myDragHandler,
+            points: [
+            {
+              id: "step_one",
+              timeStamp: 5.123,
+              labelText: "step_one_label",
+              editable: true,
+              color: '#0000FF'
+            }]
+    });
+}
+
+var myHandler = function(point) {
+    console.log("Clicked on Point: ");
+    console.log(point);
+};
+
+var myDragHandler = function(point) {
+    console.log("Dragged Point:");
+    console.log(point);
+};
+
 var recordAudio;
 var audioPreview = document.getElementById('audio-preview');
 var inner = document.querySelector('.inner');
@@ -26,9 +56,12 @@ document.querySelector('#stop-recording-audio').onclick = function() {
     recordAudio.stopRecording(function(url) {
         audioPreview.src = url;
         audioPreview.download = 'Orignal.wav';
+        peaksInit(url);
     });
 
     log('<a href="https://googledrive.com/host/0B6GWd_dUUTT8OEtLRGdQb2pibDg/ffmpeg_asm.js" download="ffmpeg-asm.js">ffmpeg-asm.js</a> file download started. It is about 18MB in size; please be patient!');
+    
+
     convertStreams(recordAudio.getBlob());
 };
 

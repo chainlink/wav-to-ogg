@@ -9,6 +9,7 @@
     <head>
         <title>RecordRTC WAV to Ogg using ffmpeg-asm.js ® Muaz Khan</title>
         <link rel="stylesheet" href="//www.webrtc-experiment.com/style.css">
+        <link rel="stylesheet" href="peaks/css/peaks.css">
         
         <style>
             audio { vertical-align: middle; }
@@ -37,6 +38,10 @@
         
         <!-- script used for audio/video/gif recording -->
         <script src="//www.webrtc-experiment.com/RecordRTC.js"> </script>
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+        <script src="lodash.compat.js"> </script>
+        <script src="peaks/js/peaks.min.js"> </script>
+        <script src="kinetic.js"> </script>
     </head>
 
     <body>
@@ -46,7 +51,7 @@
                     <a href="https://www.webrtc-experiment.com/RecordRTC/">RecordRTC</a> WAV to Ogg using <a href="http://bgrins.github.io/videoconverter.js/">ffmpeg-asm.js</a>!
                 </h1>            
             </header>
-        
+            <div id="peaks-container"></div>
             <section class="experiment">  
                 <h2 class="header">Logs</h2>
                 <ol id="logs-preview">
@@ -56,6 +61,7 @@
                 </ol>
             </section>
             
+
             <section class="experiment">  
                 <h2 class="header">Record Audio and convert into "Ogg" using <a href="https://googledrive.com/host/0B6GWd_dUUTT8OEtLRGdQb2pibDg/ffmpeg_asm.js" download="ffmpeg-asm.js">ffmpeg-asm.js</a>!</h2>
             
